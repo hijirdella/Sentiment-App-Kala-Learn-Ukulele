@@ -1,4 +1,3 @@
-# Adjusted for Ukulele by Yousician
 import streamlit as st
 import joblib
 import pandas as pd
@@ -9,9 +8,9 @@ import numpy as np
 from scipy import sparse
 
 # === Load model dan komponen ===
-model = joblib.load('Ridge_Classifier_Original_model_Ukulele_by_Yousician.pkl')
-vectorizer = joblib.load('tfidf_vectorizer_Ukulele_by_Yousician.pkl')
-label_encoder = joblib.load('label_encoder_Ukulele_by_Yousician.pkl')
+model = joblib.load('Multinomial_NB_Original_model_Kala_Learn_Ukulele_&_Tuner.pkl')
+vectorizer = joblib.load('tfidf_vectorizer_Kala_Learn_Ukulele_&_Tuner.pkl')
+label_encoder = joblib.load('label_encoder_Kala_Learn_Ukulele_&_Tuner.pkl')
 
 # === Complaint keywords ===
 complaint_keywords = [
@@ -32,7 +31,7 @@ def detect_complaint(text):
     return int(any(kw in text for kw in complaint_keywords))
 
 # === Judul Aplikasi ===
-st.title("🎵 Aplikasi Analisis Sentimen – Ukulele by Yousician")
+st.title("🎵 Aplikasi Analisis Sentimen – Kala Learn Ukulele & Tuner")
 
 # === Pilih Mode Input ===
 st.header("📌 Pilih Metode Input")
@@ -88,7 +87,7 @@ if input_mode == "📝 Input Manual":
             st.download_button(
                 label="📅 Unduh Hasil sebagai CSV",
                 data=csv_manual,
-                file_name="hasil_prediksi_manual_ukulele.csv",
+                file_name="hasil_prediksi_manual_kala.csv",
                 mime="text/csv"
             )
 
@@ -162,7 +161,7 @@ else:
 
                 ax_bar.set_ylabel("Jumlah")
                 ax_bar.set_xlabel("Sentimen")
-                ax_bar.set_title("Distribusi Sentimen Pengguna – Ukulele by Yousician")
+                ax_bar.set_title("Distribusi Sentimen Pengguna – Kala Learn Ukulele & Tuner")
                 st.pyplot(fig_bar)
 
                 # === Pie Chart ===
@@ -190,7 +189,7 @@ else:
                 st.download_button(
                     label="📅 Unduh Hasil CSV",
                     data=csv_result,
-                    file_name="hasil_prediksi_ukulele.csv",
+                    file_name="hasil_prediksi_kala.csv",
                     mime="text/csv"
                 )
 
